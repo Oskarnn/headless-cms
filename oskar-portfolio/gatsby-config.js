@@ -8,9 +8,6 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 
 module.exports = {
   siteMetadata: {
@@ -29,7 +26,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sharp`, 
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -44,13 +41,5 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    `gatsby-transformer-remark`,
   ],
-};
+}
