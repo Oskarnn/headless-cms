@@ -9,10 +9,10 @@ import Layout from "../components/layout";
 const SecondPage = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
-    allContentfulOskarsPortfolioLongTextTextNode {
+    allContentfulOskarsPortfolio {
       edges {
         node {
-          longText
+          hejHej
         }
       }
     }
@@ -22,7 +22,7 @@ const SecondPage = () => {
   return (
     <Layout>
       <ul>
-        {data.allContentfulOskarsPortfolioLongTextTextNode.edges.map((edge) => {
+        {data.allContentfulOskarsPortfolio.edges.map((edge) => {
           return (
             <li key={edge.node.id}>
               <h2>{edge.node.hejHej}</h2>

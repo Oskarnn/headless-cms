@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
     <>
       <header><Link to="/">Gatsby ITHS-starter</Link></header>
       <main>{children}</main>
-      <footer>Footer</footer>
+      <footer>Footer!</footer>
     </>
   )
 

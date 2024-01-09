@@ -9,6 +9,7 @@ import Layout from "../components/layout"
 const IndexPage = () => (
   <Layout>
     <Link to="/portfolio">Se min portfolio</Link>
+    <Link to="/test">Se min test</Link>
   </Layout>
 )
 //denna konstant sätter titeln på sidan
