@@ -22,7 +22,7 @@ const SecondPage = () => {
   return (
     <Layout>
       <ul>
-        {data.allContentfulOskarsPortfolio.edges.map((edge) => {
+        {data.allContentful.edges.map((edge) => {
           return (
             <li key={edge.node.id}>
               <h2>{edge.node.hejHej}</h2>
