@@ -2,6 +2,8 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 import Layout from "../components/layout";
 
@@ -22,6 +24,12 @@ const SecondPage = () => {
     }
   `);
 
+  const richTextConfig = {
+    renderMark: {
+      [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+    },
+  };
+
   // HÄR MÅSTE DET EVENTUELLT ÄNDRAS
   return (
     <Layout>
@@ -30,13 +38,17 @@ const SecondPage = () => {
           return (
             <li key={edge.node.id}>
               <h2>{edge.node.title}</h2>
-              <p>{edge.node.description.raw}</p>
+              <p>{renderRichText(edge.node.description, richTextConfig)}</p>
               <GatsbyImage
                 alt={edge.node.title}
                 // img={edge.node.heroImage.gatsbyImage}
 
                 // HÄR MÅSTE DET EVENTUELLT ÄNDRAS
               />
+
+              <Link to={`/portfolio/${edge.node.title.toLowerCase()}`}>
+                Read more
+              </Link>
             </li>
           );
         })}
