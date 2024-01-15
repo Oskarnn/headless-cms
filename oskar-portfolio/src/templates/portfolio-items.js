@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { MARKS } from "@contentful/rich-text-types";
 import Layout from "../components/layout";
 import { GatsbyImage } from "gatsby-plugin-image";
-// import {richTextConfig} from '../utils/utils';
 
 export const query = graphql`
   query($slug: String!) {
@@ -30,8 +29,9 @@ const portfolioItem = (props) => {
         image={props.data.contentfulPost.postImg.gatsbyImage}
         alt={props.data.contentfulPost.title}
       /> */}
-      <p>{renderRichText(props.data.description, richTextConfig)}</p>
-      <Link to="/portfolio">Go back to the list</Link>
+      <p>
+        {renderRichText(props.data.contentfulPost.description, richTextConfig)}
+      </p>
     </Layout>
   );
 };
