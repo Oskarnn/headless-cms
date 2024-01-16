@@ -1,47 +1,42 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { MARKS } from "@contentful/rich-text-types";
-
-// import Layout from "../components/layout";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const PortfolioPage = () => {
   const data = useStaticQuery(graphql`
-    query MyQuery {
-      allContentfulPost(sort: { title: ASC }) {
+    query {
+      allContentfulPost {
         edges {
           node {
+            id
             title
+            postImg {
+              gatsbyImageData(width: 300)
+            }
           }
         }
       }
     }
   `);
 
-  // HÄR MÅSTE DET EVENTUELLT ÄNDRAS
   return (
     <>
       <ul>
         {data.allContentfulPost.edges.map((edge) => {
+          const image = getImage(edge.node.postImg);
           return (
             <li key={edge.node.id}>
               <h2>{edge.node.title}</h2>
-              <GatsbyImage
-                alt={edge.node.title}
-                // img={edge.node.heroImage.gatsbyImage}
-
-                // HÄR MÅSTE DET EVENTUELLT ÄNDRAS
-              />
+              <GatsbyImage image={image} alt={edge.node.title} />
 
               <Link to={`/portfolio/${edge.node.title.toLowerCase()}`}>
-                Read more
+                Läs mer
               </Link>
             </li>
           );
         })}
       </ul>
-      <Link to="/">Go back to the homepage</Link>
     </>
   );
 };
@@ -49,3 +44,8 @@ const PortfolioPage = () => {
 export const Head = () => <title>Portfolio Page</title>;
 
 export default PortfolioPage;
+
+
+
+
+

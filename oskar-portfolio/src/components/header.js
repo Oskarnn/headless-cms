@@ -6,7 +6,7 @@ function Header() {
   const navbarItems = useNavigation();
   return (
     <>
-      <div>
+      <div className="header">
         <ul>
           {navbarItems.map((item) => {
             return (

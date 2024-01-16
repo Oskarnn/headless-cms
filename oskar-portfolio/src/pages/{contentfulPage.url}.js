@@ -24,12 +24,21 @@ const Page = (props) => {
   return <Layout>{getTemplate(contentfulPage)}</Layout>;
 };
 
-export const data = graphql`
-  query pageQuery($id: String) {
-    contentfulPage(id: { eq: $id }) {
+export const query = graphql`
+  query ($id: String) {
+    contentfulPage(id: {eq: $id}) {
       template
       title
       url
+      secondaryTitle
+      thirdTitle
+      button
+      featuredImage {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+      content {
+        raw
+      }
     }
   }
 `;

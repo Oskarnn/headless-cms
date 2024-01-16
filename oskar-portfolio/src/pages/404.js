@@ -1,14 +1,17 @@
-import * as React from "react";
+import * as React from "react"
+import Face from "../images/IMG_7311.png"
+import { Link } from "gatsby"
 
-import Layout from "../components/layout";
+const NotFoundPage = () => {
+  return (
+    <>
+      <img src={Face} alt="Ugly face" />
+      <h1>404: INGET FUNNET!!!<Link to="/">GÅ TILLBAKA GENAST</Link> </h1>
+     
+    </>
+  )
+}
 
-//i dev mode overridas denna sida av en inbyggd 404-sida
-const NotFoundPage = () => (
-  <>
-    <h1>404: Not Found</h1>
-  </>
-);
+export const Head = () => <title>404</title>
 
-export const Head = () => <title>404</title>;
-
-export default NotFoundPage;
+export default NotFoundPage
