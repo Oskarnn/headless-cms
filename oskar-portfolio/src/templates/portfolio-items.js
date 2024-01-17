@@ -29,15 +29,19 @@ const portfolioItem = props => {
   return (
     <>
       <Layout>
-        <h2>{props.data.contentfulPost.title}</h2>
-        <GatsbyImage image={image} alt={props.data.contentfulPost.title} />
-        <p>
-          {renderRichText(
-            props.data.contentfulPost.description,
-            richTextConfig
-          )}
-        </p>
-        <Link to="/">Tillbaka till listan</Link>
+        <div className="portfolio-items-content">
+          <h2>{props.data.contentfulPost.title}</h2>
+          <div className="items-image">
+            <GatsbyImage image={image} alt={props.data.contentfulPost.title} />
+          </div>
+          <p>
+            {renderRichText(
+              props.data.contentfulPost.description,
+              richTextConfig
+            )}
+          </p>
+          <Link to="/portfolio">Tillbaka till listan</Link>
+        </div>
       </Layout>
     </>
   )

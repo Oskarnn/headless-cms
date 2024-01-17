@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { MARKS } from "@contentful/rich-text-types"
+import { Helmet } from 'react-helmet'
 
 const HomeTemplate = props => {
   const richTextConfig = {
@@ -12,7 +13,15 @@ const HomeTemplate = props => {
   }
   const image = getImage(props.featuredImage)
   return (
+    
     <div className="home-section-content">
+      <Helmet>
+        <title> Oskar Nygren portfolio</title>
+        <meta name="description" content="landingpage for oskars portfolio" />
+        <meta name="description" content="front-end developing" />
+        <meta name="description" content="webdesign" />
+        <meta name="description" content="webdeveloping" />
+      </Helmet>
       <div className="home-section-1">
         <GatsbyImage
           image={image}

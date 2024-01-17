@@ -4,11 +4,11 @@ import { Link } from "gatsby"
 
 const NotFoundPage = () => {
   return (
-    <>
+    <div className="not-found">
       <img src={Face} alt="Ugly face" />
-      <h1>404: INGET FUNNET!!!<Link to="/">GÅ TILLBAKA GENAST</Link> </h1>
+      <h1>404: INGET FUNNET!!!<br></br><Link to="/">GÅ TILLBAKA GENAST</Link> </h1>
      
-    </>
+    </div>
   )
 }
 
